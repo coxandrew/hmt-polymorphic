@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150701212156) do
+ActiveRecord::Schema.define(version: 20150702142024) do
+
+  create_table "album_items", force: :cascade do |t|
+    t.integer  "album_id"
+    t.integer  "albumable_id"
+    t.string   "albumable_type"
+    t.integer  "position"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "albums", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "assignments", force: :cascade do |t|
     t.integer "task_id"
@@ -21,6 +36,18 @@ ActiveRecord::Schema.define(version: 20150701212156) do
 
   add_index "assignments", ["target_id"], name: "index_assignments_on_target_id"
   add_index "assignments", ["task_id"], name: "index_assignments_on_task_id"
+
+  create_table "documents", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "stores", force: :cascade do |t|
     t.string "name"
