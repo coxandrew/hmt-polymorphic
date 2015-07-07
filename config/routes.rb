@@ -53,4 +53,7 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  resources :albums, only: [:show]
+  get "albums/:id/album_items" => "album_items#index"
 end
