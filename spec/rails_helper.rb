@@ -48,6 +48,7 @@ RSpec.configure do |config|
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
 
+  # Use "f" to only run certain specs
   config.filter_run :focus
   config.run_all_when_everything_filtered = true
 end
