@@ -1,3 +1,11 @@
 class AlbumItemSerializer < ActiveModel::Serializer
-  attributes :id, :albumable_id, :albumable_type, :position
+  attributes :id, :type, :position
+
+  def id
+    object.albumable_id
+  end
+
+  def type
+    object.albumable_type
+  end
 end
