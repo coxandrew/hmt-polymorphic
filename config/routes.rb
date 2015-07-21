@@ -55,5 +55,5 @@ Rails.application.routes.draw do
   #   end
 
   resources :albums, only: [:show]
-  get "albums/:id/album_items" => "album_items#index"
+  get "albums/:id/album_items" => "album_items#index", as: :album_items
 end
