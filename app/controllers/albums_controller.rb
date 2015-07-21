@@ -2,7 +2,7 @@ class AlbumsController < ApplicationController
   respond_to :json
 
   def show
-    @album = Album.find(params[:id])
-    respond_with @album
+    page = params[:page] || 1
+    respond_with Album.find(params[:id]), page: page
   end
 end
